@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Blog{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/post.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/ibrahim-khan.jpg' %}" alt="Ibrahim khan- The Author of this blog">
+        <h2>Khan's Blog</h2>
+    </header>
+    <p>Hi, I am Ibrahim Khan. I am a software engineer and a blogger. This is my personal blog where I share my thoughts and experiences on various topics related to software development, technology, and life in general. I hope you enjoy reading my posts!</p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Works</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/posts.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am a software engineer with a passion for technology and a love for writing. 
+        I started this blog as a way to share my thoughts and experiences with others, 
+        and to connect with like-minded individuals who share my interests. 
+        I hope you find my posts informative, entertaining, and thought-provoking.
+    </p>
+    <p>Thank you for visiting my blog, and I hope you enjoy your stay!</p>
+</section>
+    
+{% endblock %}
